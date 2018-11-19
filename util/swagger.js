@@ -5,7 +5,7 @@
 const _ = require('lodash')
 const path = require('path')
 const Mock = require('mockjs')
-const swaggerParserMock = require('swagger-parser-mock')
+const { parser } = require('swagger-parser-mock')
 
 const util = require('./')
 const { MockProxy } = require('../proxy')
@@ -92,7 +92,7 @@ async function createMock (projectId, swaggerDocs) {
 
 module.exports = class SwaggerUtil {
   static async create (project) {
-    const docs = await swaggerParserMock(project.swagger_url)
+    const docs = await parser(project.swagger_url)
     return createMock(project.id, docs)
   }
 }
