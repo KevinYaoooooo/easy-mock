@@ -18,7 +18,7 @@ config.fe.ldap = !!config.ldap.server
 fs.writeFileSync(resolve('../views/config.json'), JSON.stringify(config.fe))
 
 module.exports = {
-  devtool: isProd ? false : '#cheap-module-source-map',
+  devtool: isProd ? false : 'inline-source-map',
   output: {
     path: resolve('../dist'),
     publicPath: config.get('fe.publicPath'),
